@@ -1,6 +1,8 @@
 @font-face {
     font-family: "futura";
-    src: url('FuturaOblique.eot') format('embedded-opentype');
+    src: url('FuturaOblique.eot') format('embedded-opentype'),
+    	 url('FuturaOblique.ttf') format('truetype'),
+		 url('FuturaOblique.woff') format('woff');
     font-weight: 600;
     -webkit-font-smoothing: antialiased;
 }
