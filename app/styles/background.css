@@ -3,7 +3,7 @@
 }
 
 .kyoto {
-	background:url('../images/Kyoto.jpg') repeat;
+	background:url('http://farm4.staticflickr.com/3705/12462189063_0739b2bf38_o.jpg') repeat;
 	/*background-color: black;*/
 	background-size: 100%;
 	min-height: 100%;
@@ -18,7 +18,7 @@
 }
 
 .palace {
-	background:url('../images/KoreaPalace.jpg') repeat;
+	background:url('http://farm4.staticflickr.com/3762/12462017585_696b1b4ba9_o.jpg') repeat;
 	background-size: 100%;
 	max-width: 100%;
 }
@@ -28,7 +28,7 @@
 }
 
 .rain{
-	background: url('../images/Rain.jpg') repeat center top transparent;
+	background: url('http://farm3.staticflickr.com/2864/12462183133_3dcabd058e_o.jpg') repeat center top transparent;
 	height: 100%;
 	background-size: 100%, 100%;		
 }
