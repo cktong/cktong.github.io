@@ -2,6 +2,12 @@
 	color:#457abe;
 }
 
+.bridge{
+	background: url('../images/bridge.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
 .kyoto {
 	background:url('http://farm4.staticflickr.com/3705/12462189063_0739b2bf38_o.jpg');
 	/*background-color: black;*/
@@ -40,3 +46,4 @@
 .rain a{
 	color: white;
 }
+
