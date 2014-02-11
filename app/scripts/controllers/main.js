@@ -15,5 +15,5 @@ angular.module('cktonggithubioApp')
 	 //    	$scope.BackgroundClass= pictures[i];
 		// }
 
-		$scope.BackgroundClass=pictures[3];
+		$scope.BackgroundClass=pictures[2];
   });
