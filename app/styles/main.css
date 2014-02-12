@@ -10,6 +10,7 @@ body    {
   background-size: 100%;
   min-height: 100%;
   margin: 0;
+  color:#5D5D5D;
   }
 
 .navbar{
@@ -53,7 +54,30 @@ body    {
   margin-top: 5%;
   margin-left: 50%; 
   /*margin-right: auto;*/
-  font-size: 1.1em;
+  font-size: 1.3em;
 }
+
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 8px 8px;
+  line-height: 1;
+  color: #fff;
+  white-space: nowrap;
+  background-color: #0088cc;
+  border-radius: 5px;
+  text-decoration: none;
+/*  font-size: 1.1em;*/
+}
+
+.aboutbutton {
+  margin-left: 40%;
+}
+
+.aboutbutton li{
+  display:inline; 
+  margin-right: 12px;
+}
+
 
 /*#C44D58*/
