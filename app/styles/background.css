@@ -1,3 +1,15 @@
+.transition{
+	-webkit-transition:all cubic-bezier(0.25,0.1,0.25,1) 1.2s;
+	-moz-transition:all 1.2s ease-in-out;
+	-o-transition:all cubic-bezier(0.25,0.1,0.25,1) 1.2s;
+	transition:all cubic-bezier(0.25,0.1,0.25,1) 1.2s;
+}
+
+.blank{
+	background: url('../images/blank.png');
+	background-size: 100%;
+}
+
 .blank h1{
 	color:#457abe;
 }
