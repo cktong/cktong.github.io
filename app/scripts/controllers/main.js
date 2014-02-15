@@ -12,13 +12,12 @@ angular.module('cktonggithubioApp')
 		var len = pictures.length-1;
 		var i = 0;
 
-		$scope.BackgroundClass='blank'
+		$scope.BackgroundClass='blank';
 
 		function changeBackground(){
 
 			$scope.BackgroundClass=pictures[i];
-			if(i<len){
-				i++;}
+			if(i<len){i++;}
 			else if(i>=len){
 				i=0;
 			}
