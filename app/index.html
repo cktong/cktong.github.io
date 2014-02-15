@@ -17,6 +17,7 @@
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/background.css">
+    <link rel="stylesheet" href="styles/maps.css">
     <!-- endbuild -->
   </head>
   <body ng-app="cktonggithubioApp" ng-view="" class="transition ng-class: {{BackgroundClass}}">
@@ -60,5 +61,8 @@
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/travel.js"></script>
         <!-- endbuild -->
+        <script src="http://d3js.org/queue.v1.min.js"></script>
+        <script src="http://d3js.org/topojson.v0.min.js"></script>
+
 </body>
 </html>

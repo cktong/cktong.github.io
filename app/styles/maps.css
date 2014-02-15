@@ -1,0 +1,61 @@
+.noclicks { pointer-events:none; }
+
+.point {  
+  opacity:.8; 
+  fill: rgb(44, 18, 233);
+}
+
+.arcs {
+  opacity:.1;
+  stroke: gray;
+  stroke-width: 3;
+}
+.flyers {
+  stroke-width:1;
+  opacity: .6;
+  stroke: darkred; 
+}
+.arc, .flyer {
+  stroke-linejoin: round;
+  fill:none;
+}
+
+.land {
+  fill:#5D5D5D;
+}
+
+.info{
+  float:left;
+  width:35%;
+/*  max-width: 600px;*/
+  font-size: 1.4em;
+  margin-top: 10%;
+  margin-left: 80px;
+  margin-right: 7%;
+}
+
+
+#tooltip {
+        position: absolute;
+        width: 200px;
+        height: auto;
+        padding: 10px;
+        background-color: white;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        pointer-events: none;
+}
+
+#tooltip.hidden {
+        display: none;
+}
+
+#tooltip p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 20px;
+}
