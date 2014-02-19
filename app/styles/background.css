@@ -18,6 +18,11 @@
 	background: url('../images/bridge.png');
 	background-repeat: no-repeat;
 	background-size: 100%;
+	/*min-width:1000px;*/
+}
+
+@media {
+	
 }
 
 .kyoto {

@@ -1,14 +1,17 @@
 
 html{
   margin: 0;
+  height:100%;
+  overflow: hidden;
 }
 
 body    {
   font-family: "futura", helvetica;
   background-size: 100%;
-  min-height: 100%;
+  height: 100%;
   margin: 0;
   color:#5D5D5D;
+  overflow: hidden;
   }
 
 .title h1 {
@@ -33,17 +36,20 @@ body    {
   width: 45%;
   margin-top: 5%;
   margin-left: 50%; 
-  /*margin-right: auto;*/
   font-size: 1.3em;
+  max-height: 75%;
+  overflow-y:auto;
 }
 
 .fill{
   max-width: 1000px;
   min-width: 600px;
+  width:80%;
   margin: auto;
   margin-top: 5%;
+  height:75%;
   font-size: 1.2em;
-
+  overflow: hidden;
 }
 
 .sidebar {
@@ -51,12 +57,16 @@ body    {
   float: left;
   border-right: 1px solid;
   padding: 1%;
+  max-height: 95%;
+  overflow-y: auto;
+
 }
 
 .mainbar {
   width: 67%;
   float: right;
   padding: 1%;
+  height: 100%;
 }
 
 .badge {
