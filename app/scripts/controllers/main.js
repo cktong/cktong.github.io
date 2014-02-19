@@ -9,18 +9,19 @@ angular.module('cktonggithubioApp')
     ];
 
 		var pictures = ['kyoto', 'palace', 'rain', 'blank'];
-		var len = pictures.length-1;
-		var i = 0;
+		var len = pictures.length;
+		var i = Math.floor(Math.random()*len);
 
-		$scope.BackgroundClass='blank';
+		$scope.BackgroundClass=pictures[i];
 
 		function changeBackground(){
 
-			$scope.BackgroundClass=pictures[i];
-			if(i<len){i++;}
-			else if(i>=len){
+			if(i<len-1){i++;}
+			else if(i>=len-1){
 				i=0;
 			}
+
+			$scope.BackgroundClass=pictures[i];
 		}
 
 		$interval(changeBackground, 4000);
