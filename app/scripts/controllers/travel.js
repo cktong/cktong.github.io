@@ -10,7 +10,7 @@ angular.module('cktonggithubioApp')
             .on('mouseup', mouseup);
 
         var width = screen.width / 2,
-            height = screen.height - 100;
+            height = screen.height - 175;
 
         var proj = d3.geo.orthographic()
             .translate([width / 2, height / 2])
