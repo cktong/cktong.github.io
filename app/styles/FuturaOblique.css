@@ -4,6 +4,6 @@
     	 url('../fonts/FuturaOblique.ttf') format('truetype'),
 		 url('../fonts/FuturaOblique.woff') format('woff'),
 		 url('../fonts/futuraoblique-webfont.svg#futura_oblique') format('svg');
-    font-weight: 600;
+    font-weight: 200;
     -webkit-font-smoothing: antialiased;
 }
