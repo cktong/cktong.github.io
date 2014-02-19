@@ -1,0 +1,38 @@
+
+.navbar{
+  font-size:1.2em;
+  display: inline-block;
+}
+.navbar li {
+  margin-right: 10px;
+  display:inline; 
+}
+
+.navbar a{
+  text-decoration: none;
+  color: rgb(113,121,121);
+}
+
+.navbar a:hover{
+  color: rgb(77,79,80);
+  border-bottom:1px solid;
+}
+
+.symbolset {
+  float:right;
+  display: inline-block;
+}
+
+/* colors for border top */
+
+.barred {
+  border-top: 5px solid #C44D58;
+}
+
+.barblue {
+  border-top: 5px solid #457abe;
+}
+
+.bargreen {
+  border-top: 5px solid #58BE45;
+}

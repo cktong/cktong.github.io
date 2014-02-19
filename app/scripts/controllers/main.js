@@ -25,6 +25,4 @@ angular.module('cktonggithubioApp')
 		}
 
 		$interval(changeBackground, 4000);
-
-
   });

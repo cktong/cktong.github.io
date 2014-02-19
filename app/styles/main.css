@@ -11,30 +11,6 @@ body    {
   color:#5D5D5D;
   }
 
-.navbar{
-  font-size:1.2em;
-  display: inline-block;
-}
-.navbar li {
-  margin-right: 10px;
-  display:inline; 
-}
-
-.navbar a{
-  text-decoration: none;
-  color: rgb(113,121,121);
-}
-
-.navbar a:hover{
-  color: rgb(77,79,80);
-  border-bottom:2px solid;
-}
-
-.symbolset {
-  float:right;
-  display: inline-block;
-}
-
 .title h1 {
   margin: 0;
   font-size: 3.5em;
@@ -59,6 +35,28 @@ body    {
   margin-left: 50%; 
   /*margin-right: auto;*/
   font-size: 1.3em;
+}
+
+.fill{
+  max-width: 1000px;
+  min-width: 600px;
+  margin: auto;
+  margin-top: 5%;
+  font-size: 1.2em;
+
+}
+
+.sidebar {
+  width: 27%;
+  float: left;
+  border-right: 1px solid;
+  padding: 1%;
+}
+
+.mainbar {
+  width: 67%;
+  float: right;
+  padding: 1%;
 }
 
 .badge {
@@ -90,6 +88,16 @@ footer {
   margin-right: 1%;
   bottom: 0;
   right: 0;
+}
+
+footer a{
+  border-bottom: none;
+  text-decoration: none;
+  color:rgb(77,79,80);
+}
+footer a:hover{
+  border-bottom: none;
+  color:rgb(77,79,80);
 }
 
 /*#C44D58*/

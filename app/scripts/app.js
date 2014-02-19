@@ -20,6 +20,10 @@ angular.module('cktonggithubioApp', [
         templateUrl: 'views/travel.html',
         controller: 'TravelCtrl'
       })
+      .when('/projects', {
+        templateUrl: 'views/projects.html',
+        controller: 'ProjectsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

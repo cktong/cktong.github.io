@@ -3,7 +3,6 @@
 angular.module('cktonggithubioApp')
     .controller('TravelCtrl', function ($scope) {
         $scope.BackgroundClass = '';
-        var r;
 
         d3.select(window)
             .on('mousemove', mousemove)
