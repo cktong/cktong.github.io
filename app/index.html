@@ -16,14 +16,21 @@
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/navigation.css">
     <link rel="stylesheet" href="styles/background.css">
     <link rel="stylesheet" href="styles/maps.css">
     <link rel="stylesheet" href="styles/ss-social.css">
     <link rel="stylesheet" href="styles/FuturaOblique.css">
-    <link rel="stylesheet" href="styles/navigation.css">
+
     <!-- endbuild -->
   </head>
-  <body ng-app="cktonggithubioApp" ng-view="" class="transition ng-class: {{BackgroundClass}}">
+  <body ng-app="cktonggithubioApp" ng-view="" class="transition {{BackgroundClass}}">
+    
+    <div class= "blank" style="display: none"></div> 
+    <div class= "kyoto" style="display: none"></div>  
+    <div class= "palace" style="display: none"></div>
+    <div class= "rain" style="display: none"></div> 
+    <div class= "bridge" style="display: none"></div> 
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->

@@ -6,7 +6,7 @@
 }
 
 .blank{
-	background: url('../images/blank.png');
+	/*background: url('../images/blank.png');*/
 	background-size: 100%;
 }
 
@@ -16,6 +16,7 @@
 
 .bridge{
 	background: url('../images/bridge.png');
+	/*background-color: #F7F0F0;*/
 	background-repeat: no-repeat;
 	background-size: 100%;
 	/*min-width:1000px;*/

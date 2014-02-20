@@ -91,6 +91,13 @@ angular.module('cktonggithubioApp')
                     return swoosh(flying_arc(d));
                 });
 
+            // svg.append('div').attr('id', 'tooltip')
+            //     .attr('class', 'hidden')
+            //     .append('p')
+            //     .append('strong')
+            //     .append('span')
+            //     .attr('id', 'city')
+
             svg.append('g').attr('class', 'points')
                 .selectAll('text').data(places.features)
                 .enter().append('path')
@@ -102,7 +109,7 @@ angular.module('cktonggithubioApp')
                     console.log(proj(d.geometry.coordinates)[0]);
 
                     d3.select('#tooltip')
-                        .style('left', width + proj(d.geometry.coordinates)[0] + 'px')
+                        .style('left', width+ proj(d.geometry.coordinates)[0] + 'px')
                         .style('top', proj(d.geometry.coordinates)[1] + 'px')
                         .select('#city')
                         .text(d.properties.NAME);
