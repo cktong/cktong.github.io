@@ -6,7 +6,7 @@
 }
 
 .blank{
-	/*background: url('../images/blank.png');*/
+	background: url('../images/blank.png');
 	background-size: 100%;
 }
 

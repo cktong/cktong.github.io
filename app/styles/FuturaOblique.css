@@ -7,3 +7,14 @@
     font-weight: 700;
     -webkit-font-smoothing: antialiased;
 }
+
+@font-face {
+  font-family: "futura";
+  src: url('../fonts/FuturaOblique.eot') format('embedded-opentype'),
+    	 url('../fonts/FuturaOblique.ttf') format('truetype'),
+		 url('../fonts/FuturaOblique.woff') format('woff'),
+		 url('../fonts/futuraoblique-webfont.svg#futura_oblique') format('svg');
+  font-weight: 700;
+  font-style: oblique;
+  -webkit-font-smoothing: antialiased;
+}

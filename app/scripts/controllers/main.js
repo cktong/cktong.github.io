@@ -8,7 +8,7 @@ angular.module('cktonggithubioApp')
       'Karma'
     ];
 
-		var pictures = ['kyoto', 'palace', 'rain', 'blank'];
+		var pictures = ['kyoto', 'palace', 'rain'];
 		var len = pictures.length;
 		var i = Math.floor(Math.random()*len);
 
