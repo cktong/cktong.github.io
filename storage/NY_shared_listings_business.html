@@ -94,8 +94,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY2hyaXNrdG9uZyIsImEiOiJjaXZqdHNyeHIwMHR1MnRue
 
 var map = new mapboxgl.Map({
     container: 'map',
-    // style: 'mapbox://styles/chrisktong/cj2jlxc1d00022rqzwrssaqma',
-    style: 'mapbox://styles/chrisktong/cj2pqrhkr004m2rmv9tg2drt5',
+    style: 'mapbox://styles/chrisktong/cj2jlxc1d00022rqzwrssaqma',
+    // style: 'mapbox://styles/chrisktong/cj2pqrhkr004m2rmv9tg2drt5',
     zoom: 11,
     // center: [-122.2913, 37.8272]
     // center: [-84.381,33.768] /* Atlnta*/
@@ -111,68 +111,56 @@ map.addControl(new MapboxGeocoder({
     accessToken: mapboxgl.accessToken
 }));
 
-var colors = [
-    '#ffffcc',
-    '#a1dab4',
-    '#41b6c4',
-    '#2c7fb8',
-    '#253494',
-    '#fed976',
-    '#feb24c',
-    '#fd8d3c',
-    '#f03b20',
-    '#bd0026'
-];
+// var colors = [
+//     '#ffffcc',
+//     '#a1dab4',
+//     '#41b6c4',
+//     '#2c7fb8',
+//     '#253494',
+//     '#fed976',
+//     '#feb24c',
+//     '#fd8d3c',
+//     '#f03b20',
+//     '#bd0026'
+// ];
 
-var categories = {
- 	property: 'mean_rent',
+var median_rent = {
+ 	property: 'median_rent',
 	type: 'interval', 
 	stops: [
 				[0, colors[0]],
-				[600, colors[1]],
-				[800, colors[2]],
-				[1000, colors[3]]]
+				[1000, colors[1]],
+				[2000, colors[2]],
+				[4000, colors[3]]]
 	};
 	
-var categories_city = {
- 	property: 'mean_rent',
-	type: 'interval', 
-	stops: [
-				[0, colors[0]],
-				[800, colors[1]],
-				[1000, colors[2]],
-				[1200, colors[3]]]
-	};
-	
-var cat_1bedroom_city = {
+var business_number = {
  	property: 'business_number',
-	type: 'interval', 
+	type: 'exponential', 
 	stops: [
-				[0, colors[0]],
-				[1, colors[1]],
-				[3, colors[2]],
-				[5, colors[3]],
-				[10, colors[4]],
-				[15, colors[5]],
-				[20, colors[6]]]
+				[0,colors[0]],
+				[5,colors[0]],
+				[10,colors[1]],
+				[40, colors[2]]]
 };
 	
 var radius_props = {
 	property: 'business_number',
-    'base': 1.4,
+    'base': 1,
+    type: 'exponential',
 	stops: [
-				[0, 2.4],
-				[5, 3.4], 
-				[10, 5.4], 
-				[15, 7.4],]
+				[0, .5],
+				[5,1],
+				[20,2],
+				[40, 2.5]]
 };
 
 
 map.on('load', function() {
-	map.setPaintProperty(layername, 'circle-color', cat_1bedroom_city);
-	map.setPaintProperty(layername, 'circle-stroke-width',  0.05);
-	map.setPaintProperty(layername, 'circle-radius', 2);
-	// map.setPaintProperty(layername, 'circle-radius', radius_props);
+	map.setPaintProperty(layername, 'circle-color', business_number);
+	// map.setPaintProperty(layername, 'circle-stroke-width',  0.05);
+	// map.setPaintProperty(layername, 'circle-radius', 1.4);	
+	map.setPaintProperty(layername, 'circle-radius', radius_props);
 });
 
 function switch_data() {
@@ -217,7 +205,7 @@ function legend_change() {
 	var legend = document.createElement("DIV");
 	legend.className = 'info legend';
 	legend.id = 'legend';
-	legend.innerHTML = '<h4>mean_Rent</h4>';
+	legend.innerHTML = '<h4>Businesses</h4>';
 	
     //loop from high to low to put legend ranges in descending order
 	
@@ -228,7 +216,7 @@ function legend_change() {
 
 }
 
-// legend_change(); //call initial to create legend_change
+legend_change(); //call initial to create legend_change
 
 // Create a popup, which I add to the map later with hover functionality
 
@@ -249,9 +237,9 @@ map.on("mousemove", layername, function(e) {
     // Populate the popup and set its coordinates
     // based on the feature found.
 	
-    // popup.setLngLat(e.features[0].geometry.coordinates)
-    //     .setHTML("<b>business_number: </b>" + round(e.features[0].properties.business_number, 2))
-    //     .addTo(map);
+    popup.setLngLat(e.features[0].geometry.coordinates)
+        .setHTML("<b>Businesses: </b>" + round(e.features[0].properties.business_number, 2))
+        .addTo(map);
     });
 	
 map.on('mouseleave', layername, function() {
