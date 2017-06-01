@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.36.0/mapbox-gl.css' rel='stylesheet' />
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+	<!-- sets categories for layer_type -->
+	<script src='unitcats.js'></script>
+	<!-- personal stylesheet -->
+	<link rel="stylesheet" type="text/css" href="shared_listings.css">
+</head>
+
+<body>
+	
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.0/mapbox-gl-geocoder.min.js'></script>
+	<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.0/mapbox-gl-geocoder.css' type='text/css' />
+
+<div id='map'></div>
+
+<div class = 'menu'>
+	<b>Change Legend</b>
+	<br>
+	<select id="legend_type">
+	    <option value="business_number">Businesses</option>
+		<option value="median_rent">Median Rent</option>
+		<option value="retail">Retail</option>
+	</select>
+	<br>
+	<button class="button" onclick="switch_data(currentlayer)">Update Map</button>
+</div>
+
+<!-- 
+<div class = 'menu'>
+	<b>Change Location</b>
+	<br>
+	<select id="legend_type">
+	    <option value=layer_sf>San Francisco</option>
+		<option value=layer_nyc>New York City</option>
+		<option value=layer_la>Los Angeles</option>
+	</select>
+	<br>
+	<button class="button" id= 'fly' onclick="fly(layer_nyc)">Update Map</button>
+</div> -->
+
+
+<button class="button" id='fly' onclick="fly(layer_nyc)">New York</button>
+ 
+<script>
+// see unicats.js for layer namatl
+var currentlayer = layer_sf
+var layername = layer_sf.link /* SF Grid*/
+console.log(layername)
+var layercenter = layer_sf.location
+
+var layer_type = "business_number";
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2hyaXNrdG9uZyIsImEiOiJjaXZqdHNyeHIwMHR1MnRueGN3NmJrbnlrIn0.5Dw0xnjS4DNz4anyFyJRDw';
+
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/chrisktong/cj2jlxc1d00022rqzwrssaqma',
+    // style: 'mapbox://styles/chrisktong/cj2pqrhkr004m2rmv9tg2drt5',
+    zoom: 11,
+    center: layercenter
+});
+
+
+
+console.log(layercenter)
+
+map.addControl(new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken
+}));
+
+map.on('load', function() {
+	map.setPaintProperty(layername, 'circle-color', business_number);	
+	map.setPaintProperty(layername, 'circle-radius', business_radius_props);
+	// map.setPaintProperty(layername, 'circle-stroke-width',  0.05);
+});
+
+// swtich data source
+function switch_data(layer) {
+	layer_type = document.getElementById("legend_type").value;
+	layername = layer.link;
+	currentlayer = layer;
+
+	console.log(layername);
+	console.log(layer_type);
+
+	if (layer_type == "business_number") {
+		map.setPaintProperty(layername, 'circle-radius', business_radius_props);
+		map.setPaintProperty(layername,'circle-color', business_number);
+		legend_change();
+	}
+	else if (layer_type == "retail") {
+		map.setPaintProperty(layername, 'circle-radius', retail_radius_props);
+		map.setPaintProperty(layername,'circle-color', retail);
+		legend_change();
+	}
+	
+	else if (layer_type = "median_rent") {
+		map.setPaintProperty(layername,'circle-color', median_rent);
+	}
+}
+
+//create function for legend change
+function keys(myObj) {//extract keys from obj
+    var ks = [];
+    for (var k in myObj) {if (myObj.hasOwnProperty(k)) {ks.push(k);}}
+    return ks;
+}
+
+function legend_change() {
+	
+// 	commenting out and force coding for presentation's sake
+// 	if (layer_type == "expensive") {
+// 		var type = shared_expensive;
+// 	}
+// 	else if (layer_type == "nation") {
+// 		var type = shared_normal;
+// 	}
+// 	else if (layer_type == "comparison") {
+// 		var type = expensive1;
+// 	}
+
+
+	var type = nation2;
+	
+	$("#legend").remove();
+	var legend = document.createElement("DIV");
+	legend.className = 'info legend';
+	legend.id = 'legend';
+	legend.innerHTML = '<h4>Businesses</h4>';
+	
+    //loop from high to low to put legend ranges in descending order
+	
+    for (var i=keys(type).length-1; i>=0; i--) { 
+        legend.innerHTML += '<i style="background:' + type[i]['color'] + '"></i> ' + type[i]['label'] + '<br>';
+    }
+	document.body.appendChild(legend);
+
+}
+
+legend_change(); //call initial to create legend_change
+
+// Create a popup, which I add to the map later with hover functionality
+
+var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+});
+
+// Create rounding function ussed for popups
+function round(value, decimals) {
+  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
+
+map.on("mousemove", layername, function(e) {
+    // Change the cursor style as a UI indicator.
+    map.getCanvas().style.cursor = 'pointer';
+
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+	
+    popup.setLngLat(e.features[0].geometry.coordinates)
+        .setHTML("<b>Businesses: </b>" + round(e.features[0].properties.business_number, 2))
+        .addTo(map);
+    });
+	
+map.on('mouseleave', layername, function() {
+    map.getCanvas().style.cursor = '';
+    popup.remove();
+});
+
+function fly(layer){
+
+	// layername = 'ny-listings-accessibility-dmmj0i'
+    switch_data(layer)
+
+    map.flyTo({
+    	zoom: 11,
+        center: layer.location
+
+    });
+
+};
+
+</script>
+
+</body>
+</html>
