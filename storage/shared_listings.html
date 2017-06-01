@@ -25,7 +25,7 @@
 	<br>
 	<select id="legend_type">
 	    <option value="business_number">Businesses</option>
-		<option value="median_rent">Median Rent</option>
+		<option value="listings_amount">Rental Listings</option>
 		<option value="retail">Retail</option>
 	</select>
 	<br>
@@ -47,13 +47,16 @@
 
 
 <button class="button" id='fly' onclick="fly(layer_nyc)">New York</button>
+<button class="button" id='fly' onclick="fly(layer_la)">Los Angeles</button>
+<button class="button" id='fly' onclick="fly(layer_sf)">San Francisco</button>
+<button class="button" id='fly' onclick="fly(layer_atl)">Atlanta</button>
  
 <script>
-// see unicats.js for layer namatl
+// see unicats.js for layer layout
 var currentlayer = layer_sf
-var layername = layer_sf.link /* SF Grid*/
+var layername = currentlayer.link
 console.log(layername)
-var layercenter = layer_sf.location
+var layercenter = currentlayer.location
 
 var layer_type = "business_number";
 
@@ -64,7 +67,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/chrisktong/cj2jlxc1d00022rqzwrssaqma',
     // style: 'mapbox://styles/chrisktong/cj2pqrhkr004m2rmv9tg2drt5',
-    zoom: 11,
+    zoom: 10,
     center: layercenter
 });
 
@@ -102,8 +105,8 @@ function switch_data(layer) {
 		legend_change();
 	}
 	
-	else if (layer_type = "median_rent") {
-		map.setPaintProperty(layername,'circle-color', median_rent);
+	else if (layer_type = "listings_amount") {
+		map.setPaintProperty(layername,'circle-color', listings_amount);
 	}
 }
 

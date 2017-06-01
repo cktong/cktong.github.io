@@ -13,7 +13,7 @@
 
 var layer_sf = {
 				'name': 'San Francisco',
-				'location': [-122.2913, 37.8272],
+				'location': [-122.35, 37.77],
 				'link': 'sf-listings-accessibility-8j7weg'
 				}
 
@@ -25,7 +25,7 @@ var layer_nyc = {
 
 var layer_la = {
 				'name': 'Los Angeles',
-				'location': [-118.221,33.955],
+				'location': [-118.325,34.031],
 				'link': 'la-listings-accessibility-cuukn9'
 				}
 
@@ -103,12 +103,11 @@ var retail_radius_props = {
 				]
 };
 	
-var median_rent = {
- 	property: 'median_rent',
+var listings_amount = {
+ 	property: 'listings_amount',
 	type: 'interval', 
 	stops: [
 				[0, colors[0]],
-				[1000, colors[1]],
-				[2000, colors[2]],
-				[4000, colors[3]]]
+				[5, colors[1]],
+				[10, colors[2]]]
 	};
