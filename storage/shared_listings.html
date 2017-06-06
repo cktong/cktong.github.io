@@ -55,7 +55,6 @@
 // see unicats.js for layer layout
 var currentlayer = layer_sf
 var layername = currentlayer.link
-console.log(layername)
 var layercenter = currentlayer.location
 
 var layer_type = "business_number";
@@ -71,9 +70,6 @@ var map = new mapboxgl.Map({
     center: layercenter
 });
 
-
-
-console.log(layercenter)
 
 map.addControl(new MapboxGeocoder({
     accessToken: mapboxgl.accessToken
@@ -91,22 +87,24 @@ function switch_data(layer) {
 	layername = layer.link;
 	currentlayer = layer;
 
-	console.log(layername);
-	console.log(layer_type);
+	// console.log(layername);
+	// console.log(layer_type);
 
 	if (layer_type == "business_number") {
 		map.setPaintProperty(layername, 'circle-radius', business_radius_props);
 		map.setPaintProperty(layername,'circle-color', business_number);
-		legend_change();
+		legend_change(layer_type);
 	}
 	else if (layer_type == "retail") {
 		map.setPaintProperty(layername, 'circle-radius', retail_radius_props);
 		map.setPaintProperty(layername,'circle-color', retail);
-		legend_change();
+		legend_change(layer_type);
 	}
 	
 	else if (layer_type = "listings_amount") {
+		map.setPaintProperty(layername,'circle-radius', listings_radius_props);
 		map.setPaintProperty(layername,'circle-color', listings_amount);
+		legend_change(layer_type);
 	}
 }
 
@@ -117,18 +115,18 @@ function keys(myObj) {//extract keys from obj
     return ks;
 }
 
-function legend_change() {
+function legend_change(layer) {
 	
 // 	commenting out and force coding for presentation's sake
-// 	if (layer_type == "expensive") {
-// 		var type = shared_expensive;
-// 	}
-// 	else if (layer_type == "nation") {
-// 		var type = shared_normal;
-// 	}
-// 	else if (layer_type == "comparison") {
-// 		var type = expensive1;
-// 	}
+	// if (layer_type == "business_number") {
+	// 	var type = shared_expensive;
+	// }
+	// else if (layer_type == "retail") {
+	// 	var type = shared_normal;
+	// }
+	// else if (layer_type == "listings_amount") {
+	// 	var type = expensive1;
+	// }
 
 
 	var type = nation2;
@@ -137,7 +135,7 @@ function legend_change() {
 	var legend = document.createElement("DIV");
 	legend.className = 'info legend';
 	legend.id = 'legend';
-	legend.innerHTML = '<h4>Businesses</h4>';
+	legend.innerHTML += '<h4>'+layer+'</h4>';
 	
     //loop from high to low to put legend ranges in descending order
 	
@@ -148,7 +146,7 @@ function legend_change() {
 
 }
 
-legend_change(); //call initial to create legend_change
+legend_change(layer_type); //call initial to create legend_change
 
 // Create a popup, which I add to the map later with hover functionality
 

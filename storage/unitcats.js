@@ -5,16 +5,11 @@
 // var layername = 'atlanta-listings-accessibilit-15y8ba'
 // var layername = 'la-listings-accessibility-cuukn9'
 
-
-// center: [-84.381,33.768] /* Atlnta*/
-// center: [-73.998,40.721] /* NYC*/
-// center:[-118.221,33.955] /* LA */
-// var layername = 'sf-listings-accessibility-8j7weg' /* SF Grid*/
-
 var layer_sf = {
 				'name': 'San Francisco',
 				'location': [-122.35, 37.77],
-				'link': 'sf-listings-accessibility-8j7weg'
+				// 'link': 'sf-listings-accessibility-8j7weg'
+				'link': 'bayarea-listings-accessibilit-ck8ev4'
 				}
 
 var layer_nyc = {
@@ -104,10 +99,27 @@ var retail_radius_props = {
 };
 	
 var listings_amount = {
- 	property: 'listings_amount',
+ 	property: 'median_rent',
 	type: 'interval', 
 	stops: [
 				[0, colors[0]],
-				[5, colors[1]],
-				[10, colors[2]]]
+				[1000, colors[0]],
+				[2000, colors[1]],
+				[3000, colors[2]]]
 	};
+
+var listings_radius_props = {
+	property: 'listings_amount',
+    'base': 1,
+    type: 'exponential',
+	stops: [
+				[{zoom: 11, value:0}, .5],
+				[{zoom: 11, value:5},1],
+				[{zoom: 11, value:10},1.5],
+				[{zoom: 11, value:20}, 2],
+				[{zoom: 20, value:0}, 4],
+				[{zoom: 20, value:5},6],
+				[{zoom: 20, value:10},8],
+				[{zoom: 20, value:20}, 10]
+				]
+};
