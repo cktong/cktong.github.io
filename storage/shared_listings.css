@@ -15,7 +15,7 @@ a{ color: black; }
 
 #fly {
 	padding: 6px 8px;
-	font: 18px/20px Arial, Helvetica, sans-serif;
+	font: 14px/16px Arial, Helvetica, sans-serif;
 	background: white;
 	background: rgba(255,255,255,0.85);
 	box-shadow: 0 0 15px rgba(0,0,0,0.5);
@@ -26,7 +26,7 @@ a{ color: black; }
 }
 
 .opening-blurb{
-	padding: 6px 8px;
+	padding: 8px 10px;
 	font: 18px/20px Arial, Helvetica, sans-serif;
 	color: white;
 	background: white;
@@ -36,7 +36,7 @@ a{ color: black; }
 	position: relative;
 	top: 100px;
 	left: 20px;
-	height: 270px;
+	height: 300px;
     width: 50%;
 /*    -webkit-animation: fadeinout 8s ease forwards;
     animation: fadeinout 8s ease forwards;*/
@@ -48,22 +48,6 @@ a{ color: black; }
     -ms-transition: all 3s ease;
     -o-transition: all 3s ease;
     transition: all 3s ease;*/
-}
-
-.opening-blurb:hover {
-  -webkit-opacity: 1;
-  -moz-opacity: 1;
-  opacity: 1;
-} 
-
-@-webkit-keyframes fadeinout {
-  0%,100% { opacity: .25; }
-  50% { opacity: 1; }
-}
-
-@keyframes fadeinout {
-  0%,100% { opacity: .25; }
-  50% { opacity: 1; }
 }
 
 .menu {
@@ -87,7 +71,7 @@ line-height: 20px;
     line-height: 18px;
     color: #555;
 	position: absolute;
-	bottom: 275px;
+	bottom: 300px;
 	right: 10px;
 }
 .legend i {
