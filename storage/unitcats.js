@@ -84,7 +84,7 @@ var retail = {
 				[0,retail_colors[0]],
 				[5,retail_colors[0]],
 				[10,retail_colors[1]],
-				[40, retail_colors[2]]]
+				[20, retail_colors[2]]]
 };
 var retail_radius_props = {
 	property: 'retail',
@@ -93,12 +93,14 @@ var retail_radius_props = {
 	stops: [
 				[{zoom: 11, value:0}, .5],
 				[{zoom: 11, value:5},1],
-				[{zoom: 11, value:20},1.5],
-				[{zoom: 11, value:40}, 2],
-				[{zoom: 20, value:0}, 4],
+				[{zoom: 11, value:10},1.5],
+				[{zoom: 11, value:20}, 2],
+				[{zoom: 11, value:100}, 4],
+				[{zoom: 20, value:0}, .5],
 				[{zoom: 20, value:5},6],
-				[{zoom: 20, value:20},8],
-				[{zoom: 20, value:40}, 10]
+				[{zoom: 20, value:10},8],
+				[{zoom: 20, value:20}, 10],
+				[{zoom: 20, value:100}, 15]
 				]
 };
 	
