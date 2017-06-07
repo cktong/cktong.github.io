@@ -1,5 +1,7 @@
 body { margin:0; padding:0; }
 
+a{ color: black; }
+
 #map { 
 	position:absolute; 
 	top:0; 
@@ -20,7 +22,48 @@ body { margin:0; padding:0; }
 	border-radius: 5px;
 	position: relative;
 	top: 10px;
-	right: -20px;
+	left: 20px;
+}
+
+.opening-blurb{
+	padding: 6px 8px;
+	font: 14px/16px Arial, Helvetica, sans-serif;
+	color: white;
+	background: white;
+	background: rgba(255,255,255,0.40);
+	box-shadow: 0 0 15px rgba(0,0,0,0.5);
+	border-radius: 5px;
+	position: relative;
+	top: 100px;
+	left: 20px;
+	height: 270px;
+    width: 50%;
+/*    -webkit-animation: fadeinout 8s ease forwards;
+    animation: fadeinout 8s ease forwards;*/
+/*    -webkit-opacity: .25;
+    -moz-opacity: .25;
+  	opacity: .25;
+  	-webkit-transition: all 3s ease;
+    -moz-transition: all 3s ease;
+    -ms-transition: all 3s ease;
+    -o-transition: all 3s ease;
+    transition: all 3s ease;*/
+}
+
+.opening-blurb:hover {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+} 
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: .25; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: .25; }
+  50% { opacity: 1; }
 }
 
 .menu {

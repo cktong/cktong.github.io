@@ -32,24 +32,19 @@
 	<button class="button" onclick="switch_data(currentlayer)">Update Map</button>
 </div>
 
-<!-- 
-<div class = 'menu'>
-	<b>Change Location</b>
-	<br>
-	<select id="legend_type">
-	    <option value=layer_sf>San Francisco</option>
-		<option value=layer_nyc>New York City</option>
-		<option value=layer_la>Los Angeles</option>
-	</select>
-	<br>
-	<button class="button" id= 'fly' onclick="fly(layer_nyc)">Update Map</button>
-</div> -->
-
 
 <button class="button" id='fly' onclick="fly(layer_nyc)">New York</button>
 <button class="button" id='fly' onclick="fly(layer_la)">Los Angeles</button>
 <button class="button" id='fly' onclick="fly(layer_sf)">San Francisco</button>
 <button class="button" id='fly' onclick="fly(layer_atl)">Atlanta</button>
+
+<div class = 'opening-blurb'>
+	<h1>City, <!-- <strike>Great</strike>  -->Grit</h1>
+	<p>What does sprawl look like? How does downtown Los Angeles compare to Manhatten? Inspired by the 2010 TED talk by <a href= 'https://www.ted.com/talks/geoffrey_west_the_surprising_math_of_cities_and_corporations#t-23489'> Geoffrey West</a> on the mathmatical laws governing cities, this ongoing project aims to provide a tool for researchers to simplify and understand the underlying properties that govern cities, towns and regions throughout the United States. Use this site to explore the amount of businesses, eateries and grocery stores within 500 meters of an intersection.</p>
+	<p>Which city should we visualize next? Collaborate? For suggestions, reach out to <a href="https://twitter.com/ctatcal">@ctatcal</a></p>
+	<p>Credits: <a href="https://twitter.com/ctatcal">@ctatcal</a>, <a href="https://github.com/fscottfoti">@fscottfoti</a>, <a href="https://github.com/brgoggin">@brgoggin</a>, <a href="https://ced.berkeley.edu/ced/faculty-staff/paul-waddell">Paul Waddell</a> and the team at <a href="https://github.com/ual/">Urban Analytics Lab</a></p>
+	<button class="button" onclick="fade('.opening-blurb')">Close</button>
+</div>
  
 <script>
 // see unicats.js for layer layout
@@ -87,9 +82,6 @@ function switch_data(layer) {
 	layername = layer.link;
 	currentlayer = layer;
 
-	// console.log(layername);
-	// console.log(layer_type);
-
 	if (layer_type == "business_number") {
 		map.setPaintProperty(layername, 'circle-radius', business_radius_props);
 		map.setPaintProperty(layername,'circle-color', business_number);
@@ -106,6 +98,13 @@ function switch_data(layer) {
 		map.setPaintProperty(layername,'circle-color', listings_amount);
 		legend_change(layer_type);
 	}
+
+	mousemove_init()
+}
+
+function fade(class_object){
+	console.log(class_object)
+ 	$(class_object).fadeToggle(800)
 }
 
 //create function for legend change
@@ -128,8 +127,7 @@ function legend_change(layer) {
 	// 	var type = expensive1;
 	// }
 
-
-	var type = nation2;
+	var type = biz_labels;
 	
 	$("#legend").remove();
 	var legend = document.createElement("DIV");
@@ -148,6 +146,7 @@ function legend_change(layer) {
 
 legend_change(layer_type); //call initial to create legend_change
 
+
 // Create a popup, which I add to the map later with hover functionality
 
 var popup = new mapboxgl.Popup({
@@ -158,34 +157,34 @@ var popup = new mapboxgl.Popup({
 // Create rounding function ussed for popups
 function round(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
-}
+};
 
-map.on("mousemove", layername, function(e) {
-    // Change the cursor style as a UI indicator.
-    map.getCanvas().style.cursor = 'pointer';
+function mousemove_init() {
+	map.on("mousemove", layername, function(e) {
+	    // Change the cursor style as a UI indicator.
+	    map.getCanvas().style.cursor = 'pointer';
 
-    // Populate the popup and set its coordinates
-    // based on the feature found.
-	
-    popup.setLngLat(e.features[0].geometry.coordinates)
-        .setHTML("<b>Businesses: </b>" + round(e.features[0].properties.business_number, 2))
-        .addTo(map);
-    });
-	
-map.on('mouseleave', layername, function() {
-    map.getCanvas().style.cursor = '';
-    popup.remove();
-});
+	    // Populate the popup and set its coordinates
+	    // based on the feature found.
+		
+	    popup.setLngLat(e.features[0].geometry.coordinates)
+	        .setHTML("<b>Businesses: </b>" + round(e.features[0].properties.business_number, 2))
+	        .addTo(map);
+	    });
+		
+	map.on('mouseleave', layername, function() {
+	    map.getCanvas().style.cursor = '';
+	    popup.remove();
+	});
+};
+
+mousemove_init();
 
 function fly(layer){
-
-	// layername = 'ny-listings-accessibility-dmmj0i'
     switch_data(layer)
-
     map.flyTo({
     	zoom: 11,
         center: layer.location
-
     });
 
 };

@@ -40,10 +40,14 @@ var layer_atl = {
 // var colors = ['#ffffcc','#a1dab4','#41b6c4','#2c7fb8','#253494','#fed976','#feb24c','#fd8d3c','#f03b20','#bd0026']; // Bright 
 // var colors = ['#E1FD3A', '#EA6529', '#F0001F', '#A6071C']; //yellow-to-red
 
-var colors = ['#bae4bc','#EA6529','#fdffd1']
+var biz_colors = ['#bae4bc','#EA6529','#fdffd1']
+var retail_colors = ['#ffffff','#44EDFF','#3EABE8']
 
-var nation2 = {0: {'label': '<5', 'color': colors[0]}, 1: {'label': '6&ndash;10', 'color': colors[1]}, 
-			   2: {'label': '11&ndash;40', 'color': colors[2]}};
+var biz_labels = {0: {'label': '< 5', 'color': biz_colors[0]}, 1: {'label': '5 &ndash; 60', 'color': biz_colors[1]}, 
+			   2: {'label': '> 60', 'color': biz_colors[2]}};
+
+var retail_labels = {0: {'label': '<5', 'color': retail_colors[0]}, 1: {'label': '6&ndash;10', 'color': retail_colors[1]}, 
+			   2: {'label': '11&ndash;40', 'color': retail_colors[2]}};		 
 
 
 
@@ -52,10 +56,10 @@ var business_number = {
  	property: 'business_number',
 	type: 'exponential', 
 	stops: [
-				[0,colors[0]],
-				[5,colors[0]],
-				[10,colors[1]],
-				[60, colors[2]]]
+				[0,biz_colors[0]],
+				[5,biz_colors[0]],
+				[10,biz_colors[1]],
+				[60, biz_colors[2]]]
 };
 var business_radius_props = {
 	property: 'business_number',
@@ -66,7 +70,7 @@ var business_radius_props = {
 				[{zoom: 11, value:5},1],
 				[{zoom: 11, value:20},1.5],
 				[{zoom: 11, value:40}, 2],
-				[{zoom: 20, value:0}, 4],
+				[{zoom: 20, value:0}, 1.5],
 				[{zoom: 20, value:5},6],
 				[{zoom: 20, value:20},8],
 				[{zoom: 20, value:40}, 10]
@@ -77,10 +81,10 @@ var retail = {
  	property: 'retail',
 	type: 'exponential', 
 	stops: [
-				[0,colors[0]],
-				[5,colors[0]],
-				[10,colors[1]],
-				[40, colors[2]]]
+				[0,retail_colors[0]],
+				[5,retail_colors[0]],
+				[10,retail_colors[1]],
+				[40, retail_colors[2]]]
 };
 var retail_radius_props = {
 	property: 'retail',
@@ -102,10 +106,10 @@ var listings_amount = {
  	property: 'median_rent',
 	type: 'interval', 
 	stops: [
-				[0, colors[0]],
-				[1000, colors[0]],
-				[2000, colors[1]],
-				[3000, colors[2]]]
+				[0, biz_colors[0]],
+				[1000, biz_colors[0]],
+				[2000, biz_colors[1]],
+				[3000, biz_colors[2]]]
 	};
 
 var listings_radius_props = {
