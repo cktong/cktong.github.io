@@ -42,6 +42,7 @@ var layer_atl = {
 
 var biz_colors = ['#bae4bc','#EA6529','#fdffd1']
 var retail_colors = ['#ffffff','#44EDFF','#3EABE8']
+var listings_colors = ['#3347B2','#7B90FF','#FFD962']
 
 var biz_labels = {0: {'label': '< 5', 'color': biz_colors[0]}, 1: {'label': '5 &ndash; 60', 'color': biz_colors[1]}, 
 			   2: {'label': '> 60', 'color': biz_colors[2]}};
@@ -49,6 +50,8 @@ var biz_labels = {0: {'label': '< 5', 'color': biz_colors[0]}, 1: {'label': '5 &
 var retail_labels = {0: {'label': '<5', 'color': retail_colors[0]}, 1: {'label': '6&ndash;10', 'color': retail_colors[1]}, 
 			   2: {'label': '11&ndash;40', 'color': retail_colors[2]}};		 
 
+var listings_labels = {0: {'label': '< $1000', 'color': listings_colors[0]}, 1: {'label': '$1000 &ndash; $3000', 'color': listings_colors[1]}, 
+			   2: {'label': '> $3000', 'color': listings_colors[2]}};
 
 
 // the stops for radius and color of maps
@@ -108,10 +111,10 @@ var listings_amount = {
  	property: 'median_rent',
 	type: 'interval', 
 	stops: [
-				[0, biz_colors[0]],
-				[1000, biz_colors[0]],
-				[2000, biz_colors[1]],
-				[3000, biz_colors[2]]]
+				[0, listings_colors[0]],
+				[1000, listings_colors[0]],
+				[2000, listings_colors[1]],
+				[3000, listings_colors[2]]]
 	};
 
 var listings_radius_props = {

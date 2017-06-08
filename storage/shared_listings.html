@@ -39,7 +39,7 @@
 <button class='fly' onclick="fly(layer_atl)">Atlanta</button>
 
 <div class = 'opening-blurb'>
-	<h1>City Grids, City Great <!-- <strike>Great</strike>  --></h1>
+	<h1>City Bytes</h1>
 	<p>What does sprawl look like? How does downtown Los Angeles compare to Manhattan? Inspired by the 2010 TED talk by <a href= 'https://www.ted.com/talks/geoffrey_west_the_surprising_math_of_cities_and_corporations#t-23489'> Geoffrey West</a> on the mathematical laws governing cities, this ongoing project aims to provide a tool for researchers to simplify and understand the underlying properties that govern cities, towns and regions throughout the United States. Use this site to explore the amount of businesses, eateries and grocery stores within 500 meters of an intersection.</p>
 	<p>Which city should we visualize next? Collaborate? For suggestions, reach out to <a href="https://twitter.com/ctatcal">@ctatcal</a></p>
 	<p>Credits: <a href="https://twitter.com/ctatcal">@ctatcal</a>, <a href="https://github.com/fscottfoti">@fscottfoti</a>, <a href="https://github.com/brgoggin">@brgoggin</a>, <a href="https://ced.berkeley.edu/ced/faculty-staff/paul-waddell">Paul Waddell</a> and the team at <a href="https://github.com/ual/">Urban Analytics Lab</a></p>
@@ -86,17 +86,20 @@ function switch_data(layer) {
 		map.setPaintProperty(layername, 'circle-radius', business_radius_props);
 		map.setPaintProperty(layername,'circle-color', business_number);
 		legend_change(layer_type);
+		$("#legend").fadeToggle()
 	}
 	else if (layer_type == "retail") {
 		map.setPaintProperty(layername, 'circle-radius', retail_radius_props);
 		map.setPaintProperty(layername,'circle-color', retail);
 		legend_change(layer_type);
+		$("#legend").fadeToggle()
 	}
 	
 	else if (layer_type = "listings_amount") {
 		map.setPaintProperty(layername,'circle-radius', listings_radius_props);
 		map.setPaintProperty(layername,'circle-color', listings_amount);
 		legend_change(layer_type);
+		$("#legend").fadeToggle()
 	}
 
 	mousemove_init()
@@ -120,29 +123,32 @@ function keys(myObj) {//extract keys from obj
 function legend_change(layer) {
 	
 // 	commenting out and force coding for presentation's sake
-	// if (layer_type == "business_number") {
-	// 	var type = shared_expensive;
-	// }
-	// else if (layer_type == "retail") {
-	// 	var type = shared_normal;
-	// }
-	// else if (layer_type == "listings_amount") {
-	// 	var type = expensive1;
-	// }
+	if (layer_type == "business_number") {
+		var type = biz_labels;
+		var layer_name = 'Businesses'
+	}
+	else if (layer_type == "retail") {
+		var type = retail_labels;
+		var layer_name = 'Retail'
+	}
+	else if (layer_type == "listings_amount") {
+		var type = listings_labels;
+		var layer_name = 'Rental Prices'
+	}
 
-	var type = biz_labels;
 	
 	$("#legend").remove();
 	var legend = document.createElement("DIV");
 	legend.className = 'info legend';
 	legend.id = 'legend';
-	legend.innerHTML += '<h4>'+layer+'</h4>';
+	legend.innerHTML += '<h4>'+layer_name +'</h4>';
 	
     //loop from high to low to put legend ranges in descending order
 	
     for (var i=keys(type).length-1; i>=0; i--) { 
         legend.innerHTML += '<i style="background:' + type[i]['color'] + '"></i> ' + type[i]['label'] + '<br>';
     }
+
 	document.body.appendChild(legend);
 
 }
@@ -186,7 +192,7 @@ mousemove_init();
 function fly(layer){
     switch_data(layer)
     map.flyTo({
-    	zoom: 11,
+    	zoom: 12,
         center: layer.location
     });
 
