@@ -20,6 +20,12 @@
 
 <div id='map'></div>
 
+
+<button class='fly' onclick="fly(layer_nyc)">New York</button>
+<button class='fly' onclick="fly(layer_la)">Los Angeles</button>
+<button class='fly' onclick="fly(layer_sf)">San Francisco</button>
+<button class='fly' onclick="fly(layer_atl)">Atlanta</button>
+
 <div class = 'menu'>
 	<b>Change Legend</b>
 	<br>
@@ -31,12 +37,6 @@
 	<br>
 	<button class="button" onclick="switch_data(currentlayer)">Update Map</button>
 </div>
-
-
-<button class='fly' onclick="fly(layer_nyc)">New York</button>
-<button class='fly' onclick="fly(layer_la)">Los Angeles</button>
-<button class='fly' onclick="fly(layer_sf)">San Francisco</button>
-<button class='fly' onclick="fly(layer_atl)">Atlanta</button>
 
 <div class = 'opening-blurb'>
 	<h1>City Bytes</h1>
@@ -101,15 +101,12 @@ function switch_data(layer) {
 		legend_change(layer_type);
 		$("#legend").fadeToggle()
 	}
-
-	mousemove_init()
 }
 
 function fade(class_object){
-	console.log(class_object)
  	$(class_object).fadeToggle(800)
- 	$("#legend").fadeToggle(2000)
- 	$(".menu").fadeToggle(2000)
+ 	$("#legend").delay(900).fadeToggle(1200)
+ 	$(".menu").delay(900).fadeToggle(1200)
  	$(".fly").delay(900).fadeToggle(1200)
 }
 
@@ -120,28 +117,30 @@ function keys(myObj) {//extract keys from obj
     return ks;
 }
 
-function legend_change(layer) {
+function legend_change(layer_type) {
 	
 // 	commenting out and force coding for presentation's sake
 	if (layer_type == "business_number") {
 		var type = biz_labels;
-		var layer_name = 'Businesses'
+		var layer_type = 'Businesses'
 	}
 	else if (layer_type == "retail") {
 		var type = retail_labels;
-		var layer_name = 'Retail'
+		var layer_type = 'Retail'
 	}
 	else if (layer_type == "listings_amount") {
 		var type = listings_labels;
-		var layer_name = 'Rental Prices'
+		var layer_type = 'Rental Prices'
 	}
 
-	
+	console.log(layer_type)
+	mousemove_init(layer_type)
+
 	$("#legend").remove();
 	var legend = document.createElement("DIV");
 	legend.className = 'info legend';
 	legend.id = 'legend';
-	legend.innerHTML += '<h4>'+layer_name +'</h4>';
+	legend.innerHTML += '<h4>'+layer_type +'</h4>';
 	
     //loop from high to low to put legend ranges in descending order
 	
@@ -150,6 +149,7 @@ function legend_change(layer) {
     }
 
 	document.body.appendChild(legend);
+
 
 }
 
@@ -168,7 +168,9 @@ function round(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 };
 
-function mousemove_init() {
+function mousemove_init(layer_type) {
+
+	console.log(layer_type)
 	map.on("mousemove", layername, function(e) {
 	    // Change the cursor style as a UI indicator.
 	    map.getCanvas().style.cursor = 'pointer';
@@ -177,7 +179,7 @@ function mousemove_init() {
 	    // based on the feature found.
 		
 	    popup.setLngLat(e.features[0].geometry.coordinates)
-	        .setHTML("<b>Businesses: </b>" + round(e.features[0].properties.business_number, 2))
+	        .setHTML("<b>"+ layer_type +": </b>" + round(e.features[0].properties.business_number, 2))
 	        .addTo(map);
 	    });
 		
@@ -186,8 +188,6 @@ function mousemove_init() {
 	    popup.remove();
 	});
 };
-
-mousemove_init();
 
 function fly(layer){
     switch_data(layer)
