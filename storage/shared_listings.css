@@ -31,13 +31,13 @@ a{ color: black; }
 	box-shadow: 0 0 15px rgba(0,0,0,0.5);
 	border-radius: 5px;
 	position: relative;
-	top: 100px;
+	top: 70px;
 	left: 3%;
 	/*height: 20%;*/
 	/*min-height: 100px;*/
 	/*max-height:500px;*/
     width: 50%;
-    max-width: 90%;
+    max-width: 370px;
 /*    overflow: scroll;*/
 }
 
