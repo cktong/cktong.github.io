@@ -225,19 +225,19 @@ footer a:hover {
 @media (max-width: 1000px) {
 
     .palace {
-        background-size: 1200px 1000px; /* Force the image to its minimum width */
+        background-size: 1200px 900px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
         background-position: center center;
     }
 
     .rain {
-        background-size: 1200px 1000px; /* Force the image to its minimum width */
+        background-size: 1200px 900px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
         background-position: center center;
     }
 
     .kyoto {
-        background-size: 1200px 1000px; /* Force the image to its minimum width */
+        background-size: 1200px 900px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
         background-position: center center;
     }
