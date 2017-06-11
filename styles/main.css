@@ -78,6 +78,7 @@ body {
     background-color: black;
     color: white;
     display: inline-block;
+    margin-top: 7px;
 }
 
 .project_plug:hover{
@@ -302,13 +303,14 @@ footer a:hover {
     .title {
         font-size: 1em;
         margin-left: 2%;
+        font-size: 1.2em;
     }
 
     .title ul {
         float: left;
     }
 
-    .fill{
+    .sidebar{
         max-width: 370px;
     }
 
