@@ -23,7 +23,7 @@ angular.module("cktonggithubioApp").controller("MainCtrl", ["$scope", "$interval
         e - 1 > f ? f++ : f >= e - 1 && (f = 0), a.BackgroundClass = d[f]
     }
     a.awesomeThings = ["HTML5 Boilerplate", "AngularJS", "Karma"];
-    var d = ["kyoto", "palace", "rain"],
+    var d = ["lights"],
         e = d.length,
         f = Math.floor(Math.random() * e);
     // a.BackgroundClass = d[f], b(c, 5e3)
@@ -136,4 +136,6 @@ angular.module("cktonggithubioApp").controller("TravelCtrl", ["$scope", function
     var s, t
 }]), 
 
-angular.module("cktonggithubioApp").controller("ProjectsCtrl", ["$scope", function() {}]);
+angular.module("cktonggithubioApp").controller("ProjectsCtrl", ["$scope", function(a) {
+    a.BackgroundClass = "amsterdam"
+}]);

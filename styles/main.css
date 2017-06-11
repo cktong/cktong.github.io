@@ -10,7 +10,8 @@ body {
     background-size: 100%;
     height: 100%;
     margin: 0;
-    color: #5D5D5D;
+    /*color: #5D5D5D;*/
+    color: white;
     overflow: hidden
 }
 
@@ -20,11 +21,18 @@ body {
     float: right
 }
 
+.title h2{
+    margin: 0;
+    font-size: 1.5em;
+    float: left
+}
+
 .title {
-    margin-top: 2%;
+    margin-top: 20%;
     margin-left: 15%;
     margin-right: 2%;
-    font-size: 2.4em
+    color: white;
+    /*font-size: 2.4em*/
 }
 
 .title ul {
@@ -45,19 +53,35 @@ body {
     min-width: 600px;
     max-width: 80%;
     margin: auto;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    height: 70%;
+    /*margin-top: 3%;*/
+    /*margin-bottom: 5%;*/
+    height: 75%;
     overflow-y: hidden
 }
 
 .sidebar {
-    width: 27%;
+    width: 700px;
     float: left;
-    border-right: 1px solid;
-    padding: 1%;
+    /*background-color: white;*/
+    opacity: .6;
+    /*border-right: 1px solid;*/
+    padding: 3%;
     height: 100%;
-    overflow-y: auto
+    overflow-y: hidden;
+}
+
+.project_plug {
+    /*width:150px;*/
+    height: 100px;
+    padding: 3%;
+    position: relative;
+    background-color: black;
+    color: white;
+    display: inline-block;
+}
+
+.project_plug:hover{
+    color:grey  ;
 }
 
 .mainbar {
@@ -136,7 +160,8 @@ footer a:hover {
 }
 
 .barblue {
-    border-top: 5px solid #457abe
+    border-top: 5px solid #457abe;
+    color: white;
 }
 
 .bargreen {
@@ -154,7 +179,7 @@ footer a:hover {
 }
 
 .barblue #name {
-    color: #457abe
+    color: white;
 }
 
 .bargreen #name {
@@ -178,7 +203,7 @@ footer a:hover {
 }
 
 .bridge {
-    background: url(../images/de9b1a7b.bridge.png);
+    background: url(../images/bridge.png);
     background-repeat: no-repeat;
     background-size: 100%
 }
@@ -206,6 +231,26 @@ footer a:hover {
 .palace h1 {
     color: #fff
 }
+
+.girl{
+    background: url(http://farm4.staticflickr.com/3791/13277680845_755875f97f_o.jpg);
+    background-size: 100%;
+    max-width: 100%
+}
+
+.lights{
+    background: url(https://c2.staticflickr.com/8/7131/13278425834_0340c20281_o.jpg);
+    background-size: 100%;
+    max-width: 100%
+}
+
+.amsterdam{
+    background: url(https://c1.staticflickr.com/3/2844/13278309854_176de44cd2_o.jpg);
+    background-size: 100%;
+    max-width: 100%;
+    /*opacity: .5;*/
+}
+
 
 .rain {
     background: url(http://farm3.staticflickr.com/2864/12462183133_3dcabd058e_o.jpg) center top transparent;
@@ -238,6 +283,18 @@ footer a:hover {
 
     .kyoto {
         background-size: 1200px 900px; /* Force the image to its minimum width */
+        background-repeat:no-repeat;
+        background-position: center center;
+    }
+
+    .amsterdam {
+        background-size: 1200px 900px; /* Force the image to its minimum width */
+        background-repeat:no-repeat;
+        background-position: center 40%;
+    }
+
+    .lights {
+        background-size: 1000px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
         background-position: center center;
     }
