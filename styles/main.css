@@ -68,6 +68,7 @@ body {
     padding: 3%;
     height: 100%;
     overflow-y: hidden;
+    max-width: 370px;
 }
 
 .project_plug {
@@ -310,9 +311,9 @@ footer a:hover {
         float: left;
     }
 
-    .sidebar{
+/*    .sidebar{
         max-width: 370px;
-    }
+    }*/
 
 }
 
