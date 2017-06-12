@@ -279,7 +279,7 @@ footer a:hover {
     .rain {
         background-size: 1000px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
-        background-position: center center;
+        background-position: center 40%;
     }
 
     .kyoto {
