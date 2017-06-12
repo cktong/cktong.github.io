@@ -315,6 +315,10 @@ footer a:hover {
         /*width: 900px;*/
     }
 
+    .fill{
+        width: 100%;
+    }
+
 }
 
 .noclicks {
