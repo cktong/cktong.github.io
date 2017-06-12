@@ -13,7 +13,6 @@ body {
     /*color: #5D5D5D;*/
     color: white;
     overflow: hidden
-    background-color: black;
 }
 
 .title h1 {
@@ -249,7 +248,8 @@ footer a:hover {
 .amsterdam{
     background: url(https://c1.staticflickr.com/3/2844/13278309854_176de44cd2_o.jpg);
     background-size: 100%;
-    max-width: 100%;    /*opacity: .5;*/
+    max-width: 100%;
+    /*opacity: .5;*/
 }
 
 
@@ -271,32 +271,31 @@ footer a:hover {
 @media (max-width: 1000px) {
 
     .palace {
-        background-size: 1400px 1000px; /* Force the image to its minimum width */
+        background-size: 1200px 900px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
         background-position: center center;
     }
 
     .rain {
-        background-size: 1400px 1000px; /* Force the image to its minimum width */
+        background-size: 1200px 900px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
         background-position: center center;
     }
 
     .kyoto {
-        background-size: 1400px 1000px; /* Force the image to its minimum width */
+        background-size: 1200px 900px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
         background-position: center center;
     }
 
     .amsterdam {
-        background-size: 1400px; /* Force the image to its minimum width */
+        background-size: 1200px 900px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
-        background-position: center center;
-        /*background-position: center 40%;*/
+        background-position: center 40%;
     }
 
     .lights {
-        background-size: 1400px 1000px; /* Force the image to its minimum width */
+        background-size: 1200px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
         background-position: center center;
     }
