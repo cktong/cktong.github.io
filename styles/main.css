@@ -273,31 +273,31 @@ footer a:hover {
     .palace {
         background-size: 1200px 900px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
-        background-position: center center;
+        background-position: 0 0;
     }
 
     .rain {
         background-size: 1200px 900px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
-        background-position: center center;
+        background-position: 0 0;
     }
 
     .kyoto {
         background-size: 1200px 900px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
-        background-position: center center;
+        background-position: 0 0;
     }
 
     .amsterdam {
         background-size: 1500px 1000px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
-        background-position: center 40%;
+        background-position: 0 40%;
     }
 
     .lights {
         background-size: 1200px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
-        background-position: center center;
+        background-position: 0 0;
     }
 
     .title {
