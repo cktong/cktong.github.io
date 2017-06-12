@@ -249,8 +249,7 @@ footer a:hover {
 .amsterdam{
     background: url(https://c1.staticflickr.com/3/2844/13278309854_176de44cd2_o.jpg);
     background-size: 100%;
-    max-width: 100%;
-    /*opacity: .5;*/
+    max-width: 100%;    /*opacity: .5;*/
 }
 
 
@@ -290,7 +289,7 @@ footer a:hover {
     }
 
     .amsterdam {
-        background-size: 1400px 1000px; /* Force the image to its minimum width */
+        background-size: 1400px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
         background-position: center center;
         /*background-position: center 40%;*/
