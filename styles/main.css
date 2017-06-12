@@ -310,10 +310,10 @@ footer a:hover {
         float: left;
     }
 
-    .sidebar{
+/*    .sidebar{
         padding: 1%;
-        /*width: 900px;*/
-    }
+        width: 900px;
+    }*/
 
     .fill{
         max-width: 100%;
