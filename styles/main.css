@@ -292,7 +292,8 @@ footer a:hover {
     .amsterdam {
         background-size: 1400px 1000px; /* Force the image to its minimum width */
         background-repeat:no-repeat;
-        background-position: center 40%;
+        background-position: center center;
+        /*background-position: center 40%;*/
     }
 
     .lights {
