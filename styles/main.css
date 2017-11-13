@@ -224,7 +224,8 @@ footer a:hover {
 }
 
 .palace {
-    background: url(http://farm4.staticflickr.com/3762/12462017585_696b1b4ba9_o.jpg);
+    /*background: url(http://farm4.staticflickr.com/3762/12462017585_696b1b4ba9_o.jpg);*/
+    background: url(https://c2.staticflickr.com/4/3762/12462017585_d220c26a8d_h.jpg);
     background-size: 100%;
     max-width: 100%
 }
@@ -240,13 +241,15 @@ footer a:hover {
 }
 
 .lights{
-    background: url(https://c2.staticflickr.com/8/7131/13278425834_0340c20281_o.jpg);
+    /*background: url(https://c2.staticflickr.com/8/7131/13278425834_0340c20281_o.jpg);*/
+    background: url(https://c2.staticflickr.com/8/7131/13278425834_bef8f87696_h.jpg);
     background-size: 100%;
     max-width: 100%
 }
 
 .amsterdam{
-    background: url(https://c1.staticflickr.com/3/2844/13278309854_176de44cd2_o.jpg);
+    /*background: url(https://c1.staticflickr.com/3/2844/13278309854_176de44cd2_o.jpg);*/
+    background: url(https://c1.staticflickr.com/3/2844/13278309854_58f9cb63e6_h.jpg);
     background-size: 100%;
     max-width: 100%;
     /*opacity: .5;*/
